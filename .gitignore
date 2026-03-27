@@ -1,0 +1,6 @@
+# ipynb 파일 무시
+*.ipynb
+venv/
+__pycache__/
+# .vscode 폴더 무시
+.vscode/
