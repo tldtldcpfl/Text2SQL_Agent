@@ -1,2 +1,2 @@
 # aladin_test
-local commit test 
+local commit test ...
