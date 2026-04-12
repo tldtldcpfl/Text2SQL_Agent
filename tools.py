@@ -1,4 +1,6 @@
-TOOLS = [
+# works like tools.json
+
+tools_list = [
     {
         "name": "kubectl_get_pods",
         "description": "Get pod list",
