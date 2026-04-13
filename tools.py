@@ -4,15 +4,27 @@
 
 from kubernetes import client, config 
 
-config.load_kube_config()
+# kubernetes 초기화 
+def k8s_init():
+    config.laod_kube_config()
+    # client
+    v1 = client.CoreV1Api()
+    pods = v1.list_pod_for_all_namespaces()
 
-v1 = client.CoreV1Api()
-pods = v1.list_pod_for_all_namespaces()
+    # Namespace는 Pod, Service 등 리소스를 논리적으로 분리하는 가상 공간
+    unique_namespaces = set()
+    # Pod Name은 개별 컨테이너 묶음(Pod)의 고유 식별자
+    unique_pod_names = set()
+    for pod in pods.items:
+        unique_namespaces.add(pod.metadata.namespace)
+        unique_pod_names.add(pod.metadata.name)
+    namespace = list(unique_namespaces)[0] if unique_namespaces else None
+    pod_name = list(unique_pod_name)[0] 
+    return namespace, pod_name
 
-# test pod run 
-# for pod in pods.items:
-#     print(pod.metadata.name)
+namespace, pod_name = k8s_init()
 
+# function list 
 def get_pods(namespace):
     return v1.list_namespaced_pod(namespace)
 
