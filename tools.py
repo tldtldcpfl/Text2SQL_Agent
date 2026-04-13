@@ -1,28 +1,17 @@
-# 쿠버네티스 실행 
-
-# tools_list = [
-#     {
-#         "name": "kubectl_get_pods",
-#         "description": "Get pod list",
-#         "args": {
-#             "namespace": "string"
-#         }
-#     },
-#     {
-#         "name": "kubectl_logs",
-#         "description": "Get pod logs",
-#         "args": {
-#             "pod_name": "string"
-#         }
-#     }
-# ]
-
+# 쿠버네티스 api 호출 및 실행 
 # action: 실제 Kubernetes에 요청 보내는 함수들 
 # 외부 kubernetes API 엔드포인트와 상호 작용
+
 from kubernetes import client, config 
 
 config.load_kube_config()
-v1 = client.CoreV1Api() 
+
+v1 = client.CoreV1Api()
+pods = v1.list_pod_for_all_namespaces()
+
+# test pod run 
+# for pod in pods.items:
+#     print(pod.metadata.name)
 
 def get_pods(namespace):
     return v1.list_namespaced_pod(namespace)
