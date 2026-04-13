@@ -1,8 +1,6 @@
 # TOOL SCHEMA 정의
 # Decision: kubectl로 현재 namespace의 pod 상태 확인하는 명령어 생성
 
-system_prompt = "kubectl로 현재 namespace의 pod 상태 확인하는 명령어 생성"
-
 TOOLS = [
     {
         "name": "get_pods",
@@ -29,7 +27,7 @@ TOOLS = [
     }
 ]
 
-SYSTEM_PROMPT = f"""
+system_prompt = f"""
 You are a Kubernetes DevOps Agent.
 
 Your job is to:
