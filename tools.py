@@ -6,7 +6,7 @@ from kubernetes import client, config
 
 # kubernetes 초기화 
 def k8s_init():
-    config.laod_kube_config()
+    config.load_kube_config()
     # client
     v1 = client.CoreV1Api()
     pods = v1.list_pod_for_all_namespaces()
@@ -19,10 +19,10 @@ def k8s_init():
         unique_namespaces.add(pod.metadata.namespace)
         unique_pod_names.add(pod.metadata.name)
     namespace = list(unique_namespaces)[0] if unique_namespaces else None
-    pod_name = list(unique_pod_name)[0] 
-    return namespace, pod_name
+    pod_name = list(unique_pod_names)[0] 
+    return v1, pods, namespace, pod_name
 
-namespace, pod_name = k8s_init()
+v1, pods, namespace, pod_name = k8s_init()
 
 # function list 
 def get_pods(namespace):
