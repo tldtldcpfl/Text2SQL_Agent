@@ -20,16 +20,32 @@ def k8s_init():
         unique_pod_names.add(pod.metadata.name)
     namespace = list(unique_namespaces)[0] if unique_namespaces else None
     pod_name = list(unique_pod_names)[0] 
-    return v1, pods, namespace, pod_name
+    # dict 형태로 리턴
+    return {
+        "v1": v1,
+        "pods": pods,
+        "namespace": namespace,
+        "pod_name": pod_name
+    }
 
-v1, pods, namespace, pod_name = k8s_init()
+k8s = k8s_init()
+v1 = k8s["v1"]
+pods = k8s["pods"]
+namespace = k8s["namespace"]
+pod_name = k8s["pod_name"]
 
-# function list 
+# k8s operations function list
+# check pod status 
 def get_pods(namespace):
+    # 특정 네임스페이스 내의 모든 Pod 목록을 반환하는 함수
     return v1.list_namespaced_pod(namespace)
 
 def get_pod_logs(pod_name, namespace):
+    # 특정 네임스페이스 내의 특정 Pod의 로그를 반환하는 함수
     return v1.read_namespaced_pod_log(pod_name, namespace)
 
 def describe_pod(pod_name, namespace):
+    # 특정 네임스페이스 내의 특정 Pod의 상세 정보를 반환하는 함수 
     return v1.read_namespaced_pod(pod_name, namespace)
+
+# action for pod deployment
