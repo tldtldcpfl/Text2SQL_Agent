@@ -8,4 +8,4 @@ SRE engineers often face high pressure and sleep deprivation due to late-night i
 ### K8S Tool Calling 
 The agent interacts with the Kubernetes cluster through a set of predefined tools. These tools wrap the Kubernetes Python client API and provide safe, structured access to cluster resources.
 
-The agent does not generate or execute raw kubectl commands. Instead, it communicates with the Kubernetes cluster via a Python server using the official Kubernetes API. By utilizing the Kubernetes Python client (e.g., `list_namespaced_pod`), it performs pod retrieval and operational tasks in a safe, structured, and programmatic way.
+The agent does not generate or execute raw kubectl commands. Instead, it communicates with the Kubernetes cluster via a Python server using the official Kubernetes API. By interacting with Kubernetes API objects via HTTP, it performs container management and operational tasks. 
