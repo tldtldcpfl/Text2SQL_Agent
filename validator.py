@@ -33,8 +33,13 @@ def validate_logs(log_text: str):
     # If nothing goes wrong 
     return False, "normal"
 
-# test: 로그 필드 검증 함수 실행
-# logs = get_pod_logs(pod_name, namespace)
-# # print(logs)  
-# result = validate_logs(logs)
-# print(result) 
+def perform_log_validation(pod_name, namespace, get_pod_logs):
+    """로그 검증을 수행하는 함수 (매개변수로 의존성 주입)"""
+    logs = get_pod_logs(pod_name, namespace)
+    # print(f"[logs for validation] {logs}")  # 검증할 로그 출력
+    result = validate_logs(logs) 
+    return result
+
+# test: perform_log_validation 함수 실행 
+# valid_result = perform_log_validation(pod_name, namespace, get_pod_logs)
+# print(valid_result)
