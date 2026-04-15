@@ -4,7 +4,7 @@
 
 from kubernetes import client, config 
 
-# kubernetes 초기화 
+# kubernetes 초기화 함수  
 def k8s_init():
     config.load_kube_config()
     # client
@@ -41,6 +41,9 @@ def get_pods(namespace):
     return v1.list_namespaced_pod(namespace)
 
 def get_pod_logs(pod_name, namespace):
+    """"
+    logs:Kubernetes가 반환하는 컨테이너 로그 문자열 get_pod_logs
+    """
     # 특정 네임스페이스 내의 특정 Pod의 로그를 반환하는 함수
     return v1.read_namespaced_pod_log(pod_name, namespace)
 
@@ -48,4 +51,3 @@ def describe_pod(pod_name, namespace):
     # 특정 네임스페이스 내의 특정 Pod의 상세 정보를 반환하는 함수 
     return v1.read_namespaced_pod(pod_name, namespace)
 
-# action for pod deployment
