@@ -1,16 +1,16 @@
-# analyzer.py A/B Test: Kubernetes Log Anomaly Detection Benchmark
+## Analyzer A/B Test: Kubernetes Log Anomaly Detection Benchmark
 
-## Overview
+### Overview
 
-`analyzer.py` is the core module responsible for detecting anomalies from Kubernetes cluster logs.
+Aanalyzer is a module responsible for detecting anomalies from Kubernetes cluster logs. 
 
 This project compares two different approaches to identify the most effective architecture for production-grade log anomaly detection.
 
 ---
 
-# Compared Approaches
+## Compared Approaches
 
-## A. LLM Prompt-Based Log Anomaly Detection
+### A. LLM Prompt-Based Log Anomaly Detection
 
 This approach uses a Large Language Model with a Kubernetes / SRE expert system prompt to classify logs.
 
