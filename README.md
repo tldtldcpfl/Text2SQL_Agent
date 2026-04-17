@@ -21,6 +21,11 @@ The analyzer module is the core component responsible for processing Kubernetes 
 
 #### Tool
 The tool.py module provides utility functions and scripts for data preprocessing, log ingestion, and integration with Kubernetes APIs. It handles tasks such as log parsing, filtering, and preparing datasets for analysis.
+```
+def get_pods(namespace):
+    # return namespace of pod via connecting to k8s api client 
+    return v1.list_namespaced_pod(namespace)
+```
 
 #### Prompt
 The prompt module manages the LLM prompts used in the anomaly detection process. It includes predefined templates for expert-level classification, such as the example prompt that instructs the LLM to return only a binary classification (0 or 1) for each log entry.
