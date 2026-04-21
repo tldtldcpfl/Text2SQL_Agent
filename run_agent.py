@@ -5,7 +5,7 @@ from prompt import system_prompt
 from tools import get_pods, get_pod_logs, describe_pod, namespace, pod_name
 from validator import perform_log_validation 
 
-# ollama 엔드포인트: ollama는 로컬에서 실행되는 LLM 서버입니다.
+# ollama 엔드포인트: ollama는 로컬에서 실행되는 LLM 서버
 OLLAMA_URL = "http://localhost:11434/api/generate"
 
 def main():
@@ -13,7 +13,7 @@ def main():
     Ollama (qweun2.5:3b) 모델에 system_prompt를 보내고, 응답을 받아서 JSON으로 파싱한 후,
     응답에 포함된 "tool" 필드에 따라 Kubernetes API 함수를 호출하는 방식
     """
-    # LLM 기반 함수 호출 
+    # LLM 서빙 엔드포인트 호출 
     response = requests.post(
         OLLAMA_URL,
         # json 형식으로 리턴 받기 위해 json 파라미터 사용
