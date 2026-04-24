@@ -1,9 +1,24 @@
-<<<<<<< HEAD
-# Text2sql Agent
-To build an effective Text-to-SQL agent that remains resilient to evolving table schemas, you need a system that decouples schema retrieval from query generation. A robust architecture typically relies on a "Retrieve-then-Generate" flow, utilizing vector embeddings to bridge the gap between natural language intent and dynamic database structures.
-
-Here is an architectural breakdown for designing such an agent. 
-=======
 # Text2Dashboard_Agent
 Text query to dashboard via chainlit framework
->>>>>>> 30fa7da28e10f7d6d28c29619b68e5d0ac9e7983
+
+## Why This Matters
+In enterprise environments with thousands of RDBMS tables and complex, evolving schemas, the challenge is not just "writing SQL,but maintaining enterprise-grade data integrity and performance".  
+
+## Problem Definition 
+LLM ignores table schema
+LLMs can generate SQL queries by directly injecting table schema information (e.g., table names and columns) into the system prompt. A common approach is to provide the schema as context and rely on system prompt. 
+
+However, this naive approach introduces several critical limitations:
+- Ignoring key columns: LLM often fail to indentify and utilize the most relavant columns for a given query. Instead, they may select semantically similar but incorrect columns.  
+
+- Incorrect or Missing JOIN conditions
+
+- Incomplete WHERE clauses 
+
+- Performance degradtion 
+
+### Root Cause 
+These issues stem from a fundamental limitation of LLM: non-deterministic 
+
+## Solution: Schema Validation Agent 
+To address these limitations, we introduce a Schema Validation Agent framework. Instread of relying solely on prompt-based SQL generation: Validate and refine SQL queries using **schema-aware structural checks**. 
