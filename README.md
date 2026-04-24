@@ -20,5 +20,5 @@ However, this naive approach introduces several critical limitations:
 ### Root Cause 
 These issues stem from a fundamental limitation of LLM: non-deterministic 
 
-## Solution: Schema Validation Agent 
+## Approach: Schema Validation Agent 
 To address these limitations, we introduce a Schema Validation Agent framework. Instread of relying solely on prompt-based SQL generation: Validate and refine SQL queries using **schema-aware structural checks**. 
