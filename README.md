@@ -1,4 +1,4 @@
-# Text2Dashboard_Agent
+# Text2SQL_Agent
 Text query to dashboard via chainlit framework
 
 ## Why This Matters
