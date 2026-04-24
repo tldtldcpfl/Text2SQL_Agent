@@ -1,53 +1,17 @@
-# TOOL SCHEMA 정의
-# Decision: kubectl로 현재 namespace의 pod 상태 확인하는 명령어 생성
+from emb_query import top_tables
 
-TOOLS = [
-    {
-        "name": "get_pods",
-        "description": "List all pods in a namespace",
-        "args": {
-            "namespace": "string"
-        }
-    },
-    {
-        "name": "get_pod_logs",
-        "description": "Get logs of a specific pod",
-        "args": {
-            "pod_name": "string",
-            "namespace": "string"
-        }
-    },
-    {
-        "name": "describe_pod",
-        "description": "Describe a pod for debugging",
-        "args": {
-            "pod_name": "string",
-            "namespace": "string"
-        }
-    }
-]
+# top_tables: 테이블 이름, 컬럼명, 데이터 타입, 외래키 관계까지 포함
 
 system_prompt = f"""
-You are a Kubernetes DevOps Agent.
+당신은 금융 데이터 전문 SQL 생성기입니다. 
+다음 스키마 정보를 기반으로 실행 가능한 안전한 SQL을 작성하세요.
 
-Your job is to:
-- Select the best tool
-- Provide arguments for the tool
+[Schema context] 
+{top_tables}  
 
-Available tools:
-{TOOLS}
-
-Rules:
-- ONLY use provided tools
-- NEVER generate raw kubectl commands
-- ALWAYS return valid JSON
-- NO explanation
-
-Output format:
-{{
-  "tool": "tool_name",
-  "args": {{
-    "arg1": "value"
-  }}
-}}
+[Constraints]
+1. 성능을 위해 JOIN 시 인덱스 컬럼을 우선 사용하세요.
+2. 오직 SQL 쿼리 코드만 출력하세요.
+3. 생성된 SQL은 MySQL 문법을 준수하세요.
+4. 반드시 한국어만 생성하세요. 
 """
