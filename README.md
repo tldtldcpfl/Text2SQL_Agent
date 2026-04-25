@@ -1,5 +1,5 @@
 # Text2SQL Agent
-Text query to dashboard via chainlit framework
+...
 
 ## Why This Matters
 In enterprise environments with thousands of RDBMS tables and complex, evolving schemas, the challenge is not just "writing SQL,but maintaining enterprise-grade data integrity and performance".  
