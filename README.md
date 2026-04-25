@@ -22,3 +22,5 @@ These issues stem from a fundamental limitation of LLM: non-deterministic
 
 ## Approach: Schema Validation Agent 
 To address these limitations, we introduce a Schema Validation Agent framework. Instread of relying solely on prompt-based SQL generation: Validate and refine SQL queries using **schema-aware structural checks**. 
+
+Fundamentally, this approach allows for precise SQL generation control by the agent, along with table and column-level access management.
