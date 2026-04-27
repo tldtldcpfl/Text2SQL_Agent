@@ -5,4 +5,5 @@ LLM이 생성한 sql 쿼리 검증은 크게 3가지 레벨에서 수행한다.
 - 논리 레벨: where 절의 조건문, join 절의 테이블 관계 등 논리적 오류 확인 
 - 보안 레벨: 민감한 데이터 (ex. 테이블명, 컬럼명) 접근 제한 
 
-<img width="764" height="363" alt="image" src="https://github.com/user-attachments/assets/cdb9a7f4-981f-43b9-b526-b671107d3c7b" />
+<img width="786" height="363" alt="image" src="https://github.com/user-attachments/assets/e6bfc7dc-7fc4-4d90-95b7-c5543fe0806a" />
+
