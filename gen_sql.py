@@ -32,7 +32,7 @@ def generate_sql(llm_id, system_prompt):
 # print(gen_sql) 
  
 def infer_speed_llm(model_id):
-    # 추론 속도 측정 (base)
+    # 추론 속도 측정 
     start_time = time.perf_counter()
 
     generate_sql(model_id, system_prompt) 
@@ -43,4 +43,4 @@ def infer_speed_llm(model_id):
 # 추론 속도 가속화 
 # ollama 내 llama.cpp가 제공하는 고성능 추론 최적화 기술 (gguf 양자화) 사용
 model_id = "qwen2.5:7b-instruct-q4_k_m"
-infer_speed_llm(model_id)   
+infer_speed_llm(model_id)   # 2.65s 

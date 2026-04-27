@@ -29,5 +29,5 @@ def emb_sim(top_k, user_query):
     return top_tables 
 
 user_query = "artist name이 'AC/DC'인 album의 title과 id를 알려줘" 
-result = emb_sim(3, user_query)
-print(result ) 
+top_tables = emb_sim(3, user_query)
+# print(result)  
