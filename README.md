@@ -1,5 +1,5 @@
-# Text2SQL_Agent
-Text query to dashboard via chainlit framework
+# Text2SQL Agent
+TBD: add overview desc and architecture img
 
 ## Why This Matters
 In enterprise environments with thousands of RDBMS tables and complex, evolving schemas, the challenge is not just "writing SQL,but maintaining enterprise-grade data integrity and performance".  
@@ -22,3 +22,6 @@ These issues stem from a fundamental limitation of LLM: non-deterministic
 
 ## Approach: Schema Validation Agent 
 To address these limitations, we introduce a Schema Validation Agent framework. Instread of relying solely on prompt-based SQL generation: Validate and refine SQL queries using **schema-aware structural checks**. 
+
+**Usage Strategy:**
+Fundamentally, this approach allows for precise SQL generation control by the agent, along with table and column-level access management.
