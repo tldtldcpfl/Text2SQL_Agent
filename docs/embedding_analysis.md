@@ -1,5 +1,8 @@
 # Embedding Analysis
 
+## Prompt Only
+
+
 ## Encoder: all-minilm
 all-minilm 인코더는 sentence-bert 기반의 384d 임베딩을 생성하는 경량화된 모델이다. 10억개의 query-docuemnt pair에 학습되어 문장의 general한 의미를 벡터화시키는데 최적화되어있다. 
 
