@@ -2,6 +2,7 @@ import ollama
 from prompt import system_prompt
 from emb_query import user_query
 import time
+from config import llm_id  
 
 # 주요 기능: llm의 sql 쿼리문 생성 (validator 넘기기 전)
 
@@ -24,6 +25,7 @@ def generate_sql(llm_id, system_prompt):
     return gen_sql    
  
 def infer_speed_llm(model_id):
+    """ollama 내 llama.cpp가 제공하는 고성능 추론 최적화 기술 (gguf 양자화) 사용"""
     # 추론 속도 측정 
     start_time = time.perf_counter()
 
@@ -33,12 +35,22 @@ def infer_speed_llm(model_id):
     print(f"응답 시간: {end_time - start_time:.2f}초") 
 
 # 추론 속도 가속화 
-# ollama 내 llama.cpp가 제공하는 고성능 추론 최적화 기술 (gguf 양자화) 사용
 # model_id = "qwen2.5:7b-instruct-q4_k_m"
 # infer_speed_llm(model_id)   # 2.65s  
 
-# llm congig   
-# llm_id = "qwen3.5:latest"
-llm_id = "qwen2.5:7b-instruct-q4_K_M" 
-gen_sql = generate_sql(llm_id, system_prompt)  
-print(gen_sql) 
+def extract_sql(gen_sql):
+    """마크다운 코드 블록에서 순수 SQL만 추출"""
+    # ```sql ... ``` 패턴으로 SQL 추출
+    import re 
+    sql_match = re.search(r"```sql\s*(.*?)\s*```", gen_sql, re.DOTALL)
+    
+    if sql_match:
+        return sql_match.group(1).strip()
+    
+    # 코드 블록이 없으면 전체 내용 반환
+    return gen_sql.strip()
+ 
+# gen_sql = generate_sql(llm_id, system_prompt)  
+# clean_sql = extract_sql(gen_sql) 
+# print('[info] generated sql before clean:\n',gen_sql)  
+# print('[info] cleaned sql:\n',clean_sql) 

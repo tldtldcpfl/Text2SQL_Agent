@@ -2,12 +2,12 @@ from langchain_community.embeddings import OllamaEmbeddings
 import numpy as np
 from refine_schema import table_docs
 import warnings
-warnings.filterwarnings('ignore')
+warnings.filterwarnings('ignore') 
+from config import emb_id  
 
-def emb_sim(top_k, user_query):
+def emb_sim(emb_id, top_k, user_query):
 
     # 임베딩 모델 호출 
-    emb_id = "all-minilm:latest"  
     embedding_model = OllamaEmbeddings(model= emb_id) 
 
     # table_docs와 user_query 간 유사도 계산  
@@ -29,5 +29,5 @@ def emb_sim(top_k, user_query):
     return top_tables 
 
 user_query = "artist name이 'AC/DC'인 album의 title과 id를 알려줘" 
-top_tables = emb_sim(3, user_query)
-# print(result)  
+top_tables = emb_sim(emb_id, 3, user_query)
+# print(top_tables)  
