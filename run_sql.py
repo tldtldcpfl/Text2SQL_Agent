@@ -17,10 +17,15 @@ def display_df(clean_sql):
     columns = clean_sql.split("SELECT")[1].split("FROM")[0].strip().split(",")
     columns = [col.strip() for col in columns]  # 컬럼명 공백 제거
     df = pd.DataFrame(db_list, columns=columns) 
+    
     # df의 top 10 출력 
     return df.head(10) 
 
-gen_sql = generate_sql(llm_id, system_prompt)
-clean_sql = extract_sql(gen_sql) 
-df = display_df(clean_sql)   
+# NOTE: clean_sql 쿼리 실행 함수 추가  
+# as-is: 유저 쿼리에 대해 clean_sql을 뽑은 후, display_df 함수를 실행하는 구조
+# to-be: clean_sql에 적합한 여러 함수를 실행하는 구조로 변경 
+
+# gen_sql = generate_sql(llm_id, system_prompt)
+# clean_sql = extract_sql(gen_sql) 
+# df = display_df(clean_sql)    
 # print(df)      
