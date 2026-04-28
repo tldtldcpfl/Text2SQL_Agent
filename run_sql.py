@@ -25,7 +25,11 @@ def display_df(clean_sql):
 # as-is: 유저 쿼리에 대해 clean_sql을 뽑은 후, display_df 함수를 실행하는 구조
 # to-be: clean_sql에 적합한 여러 함수를 실행하는 구조로 변경 
 
-# gen_sql = generate_sql(llm_id, system_prompt)
-# clean_sql = extract_sql(gen_sql) 
-# df = display_df(clean_sql)    
-# print(df)      
+def execute_sql(user_query, llm_id, system_prompt):
+    """유저 쿼리를 입력받아 SQL 생성부터 실행까지 한 번에 처리하는 함수"""
+    gen_sql = generate_sql(llm_id, system_prompt)
+    clean_sql = extract_sql(gen_sql) 
+    # print('[info] cleaned sql:\n',clean_ssql)
+    
+    df = display_df(clean_sql) 
+    print('[info] table results:\n', df)
