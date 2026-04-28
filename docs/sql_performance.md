@@ -10,5 +10,5 @@
 Note: quantization (q4) 
 
 ## Pipelines
-load full schema → filter_schema → generate_sql → validate_sql → run_sql (db connection)   
+Load full schema → filter_schema → generate_sql → validate_sql → run_sql (db connection)    
 
