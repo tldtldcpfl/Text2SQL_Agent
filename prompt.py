@@ -1,7 +1,7 @@
 from emb_query import top_tables
+from tools import tools_list 
 
-# top_tables: 테이블 이름, 컬럼명, 데이터 타입, 외래키 관계까지 포함
-
+# top_tables: 테이블 이름, 컬럼명, 데이터 타입, 외래키 관계까지 포함 
 system_prompt = f"""
 당신은 금융 데이터 전문 SQL 생성기입니다. 
 다음 스키마 정보를 기반으로 실행 가능한 안전한 SQL을 작성하세요.

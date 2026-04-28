@@ -8,8 +8,8 @@ from db_connect import db
 import pandas as pd 
 from gen_sql import extract_sql 
 
-# 데이터를 표 형태로 변환
 def display_df(clean_sql):
+    """db 쿼리 실행 결과 데이터를 표 형태로 변환"""
     # clean 쿼리 db 실행 
     db_result = db.run(clean_sql)
     import ast 
@@ -20,7 +20,7 @@ def display_df(clean_sql):
     # db 결과를 DataFrame으로 변환 
     df = pd.DataFrame(db_list, columns=columns)  
     # df의 top 10 출력 
-    return df.head(10) 
+    return df.head(10)  
 
 # NOTE: clean_sql 쿼리 실행 함수 추가  
 # as-is: 유저 쿼리에 대해 clean_sql을 뽑은 후, display_df 함수를 실행하는 구조

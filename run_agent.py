@@ -1,6 +1,6 @@
 # main.py  
-import requests 
-import json 
+import warnings
+warnings.filterwarnings("ignore")
 from prompt import system_prompt 
 from emb_query import emb_sim
 from config import emb_id, llm_id

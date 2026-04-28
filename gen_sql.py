@@ -1,5 +1,8 @@
+import warnings
+warnings.filterwarnings("ignore")
 import ollama 
 from prompt import system_prompt
+from tools import tools_list
 import time
 from config import llm_id  
 
@@ -10,10 +13,12 @@ def generate_sql(user_query, llm_id, system_prompt):
     # ollama API 호출 
     response = ollama.chat(model=llm_id, 
                         messages=[{"role": "system", "content": system_prompt},
-                                    {"role": "user", "question": user_query}
+                                    {"role": "user", "content": user_query}
                                     ],
-                            options={
-                                "temperature": 0,  # 0으로 설정하면 결정록적(일관적) 응답 유도
+                        tools= tools_list, # llm이 활용할 수 있는 도구 리스트
+                        options={
+                                # 결정론적 응답 생성을 위해 0~0.2권장
+                                "temperature": 0.2,  # 0으로 설정하면 결정록적(일관적) 새엇ㅇ
                                 "num_predict": 500. # 출력 길이 제한 (서술형 응답 최소화)
                             }             
                             )
@@ -52,6 +57,7 @@ def extract_sql(gen_sql):
 # 테스트 코드 
 # user_query = "artist name이 'AC/DC'인 album의 title과 id를 알려줘" 
 # gen_sql = generate_sql(user_query, llm_id, system_prompt)  
-# print('[info] generated sql before cleaning:\n',gen_sql) 
+# print('[info] generated sql before cleaning:\n',gen_sql)
+
 # clean_sql = extract_sql(gen_sql)  
 # print('[info] cleaned sql:\n',clean_sql) 
