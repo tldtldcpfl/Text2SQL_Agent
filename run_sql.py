@@ -37,4 +37,4 @@ def execute_sql(user_query, llm_id, system_prompt):
     
     # db에서 clen_sql 쿼리 실행 후 테이블 결과 반환  
     df = display_df(clean_sql) 
-    print('[info] table results:\n', df)
+    print('[info] table results:\n', df) 
