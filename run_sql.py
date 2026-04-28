@@ -29,7 +29,7 @@ def display_df(clean_sql):
 def execute_sql(user_query, llm_id, system_prompt):
     """유저 쿼리를 입력받아 SQL 생성부터 실행까지 한 번에 처리하는 함수"""
     # filtered context 기반 llm의 sql 쿼리 생성
-    gen_sql = generate_sql(llm_id, system_prompt)
+    gen_sql = generate_sql(user_query, llm_id, system_prompt)
     
     # 정제된 sql 쿼리 추출
     clean_sql = extract_sql(gen_sql) 
