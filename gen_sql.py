@@ -5,11 +5,6 @@ import time
 
 # 주요 기능: llm의 sql 쿼리문 생성 (validator 넘기기 전)
 
-
-# llm congig   
-# llm_id = "qwen3.5:latest"
-llm_id = "qwen2.5:7b-instruct-q4_K_M" 
-
 def generate_sql(llm_id, system_prompt):
 
     # ollama API 호출 
@@ -27,9 +22,6 @@ def generate_sql(llm_id, system_prompt):
     # print(response['message']['content'])
     gen_sql = response['message']['content'] 
     return gen_sql    
-
-# gen_sql = generate_sql(llm_id, system_prompt)  
-# print(gen_sql) 
  
 def infer_speed_llm(model_id):
     # 추론 속도 측정 
@@ -44,3 +36,9 @@ def infer_speed_llm(model_id):
 # ollama 내 llama.cpp가 제공하는 고성능 추론 최적화 기술 (gguf 양자화) 사용
 # model_id = "qwen2.5:7b-instruct-q4_k_m"
 # infer_speed_llm(model_id)   # 2.65s  
+
+# llm congig   
+# llm_id = "qwen3.5:latest"
+llm_id = "qwen2.5:7b-instruct-q4_K_M" 
+gen_sql = generate_sql(llm_id, system_prompt)  
+print(gen_sql) 
