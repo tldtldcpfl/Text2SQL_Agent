@@ -10,14 +10,15 @@ from gen_sql import extract_sql
 
 # 데이터를 표 형태로 변환
 def display_df(clean_sql):
-    # clean 쿼리 db 실행
+    # clean 쿼리 db 실행 
     db_result = db.run(clean_sql)
     import ast 
     db_list = ast.literal_eval(db_result) 
     columns = clean_sql.split("SELECT")[1].split("FROM")[0].strip().split(",")
     columns = [col.strip() for col in columns]  # 컬럼명 공백 제거
-    df = pd.DataFrame(db_list, columns=columns) 
     
+    # db 결과를 DataFrame으로 변환 
+    df = pd.DataFrame(db_list, columns=columns)  
     # df의 top 10 출력 
     return df.head(10) 
 
@@ -27,9 +28,13 @@ def display_df(clean_sql):
 
 def execute_sql(user_query, llm_id, system_prompt):
     """유저 쿼리를 입력받아 SQL 생성부터 실행까지 한 번에 처리하는 함수"""
+    # filtered context 기반 llm의 sql 쿼리 생성
     gen_sql = generate_sql(llm_id, system_prompt)
+    
+    # 정제된 sql 쿼리 추출
     clean_sql = extract_sql(gen_sql) 
     # print('[info] cleaned sql:\n',clean_ssql)
     
+    # db에서 clen_sql 쿼리 실행 후 테이블 결과 반환  
     df = display_df(clean_sql) 
     print('[info] table results:\n', df)
