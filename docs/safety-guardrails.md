@@ -10,7 +10,7 @@ Master/sub agent 간 context 분리 및 사용 시나리오별 tool/data 접근 
 
 여러 step을 거치는 동안 발생하는 여러 도구 사용, api 호출 로그 추적/분석을 통해 위험 요소를 탐지한다. [agent trajectories 평가 데이터셋](https://huggingface.co/datasets/AI45Research/ATBench)에 대해 핵심 평가 항목은 다음과 같다.
 - 위험 출처 (risk source): 유해한 쿼리, **부적절한 tool name** 사용
-- domain-level과 tool_name-level 분류 정확도 
+- domain-level (top-level)과 tool_name-level (low-level) 분류 정확도 
 
 <br>
 
