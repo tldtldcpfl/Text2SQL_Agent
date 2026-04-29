@@ -4,7 +4,7 @@
 - 사전 핛습 시 코딩 및 논리 추론 task에 특화된 점: sql은 일반 자연어보다 구조적 '코드'에 가깝다. 이에 따라, qwendms join, sub 쿼리 등 sql 문법을 준수하여 쿼리를 생성하는 능력이 우세하다.
 
 ## But, Poor effectiveness in straightforward approach (LLM directly generated-SQL)  
-하지만, LLM으로 바로 SQL 쿼리를 생성하는 방법은 효율성이 낮다. SchemaAgent(2025)에 따를면, user query 기반 logical schema 디자인 정보를 schema 생성 task에 활용하는 방식의 우위를 증명했다. 여기서, Logical 디자인은 entities, relations, and mapping cardinality (특정 컬럼에 존재하는 고유한(Unique) 값의 개수)의 적절한 조합(set)이다. 
+하지만, LLM으로 바로 SQL 쿼리를 생성하는 방법은 효율성이 낮다. SchemaAgent(2025)에 따를면, user query 기반 logical schema 디자인 정보를 schema 생성 task에 활용하는 방식의 임팩트를 보였다. 여기서, Logical 디자인은 entities, relations, and mapping cardinality (특정 컬럼에 존재하는 고유한(Unique) 값의 개수)의 적절한 조합(set)이다. 
 
 ## Proposed Approach
 이 방법론에서 착안하여, 본 프로젝트에서는 executable sql 생성 task에     
