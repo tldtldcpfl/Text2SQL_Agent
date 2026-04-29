@@ -15,3 +15,6 @@ from sqlalchemy import (
 # sqlalchemy:
 # - 파이썬 데이터베이스 ORM(Object Realtaional Mapping) 라이브러리
 # - DB에 대한 CRUD 를 조작 
+engine = create_engine("sqlite:///:memory:")
+metadata_obj = MetaData()
+print(metadata_obj)
