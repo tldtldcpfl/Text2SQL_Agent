@@ -1,5 +1,7 @@
 ## Qwen-Embedding for semantic search
-Qwen 임베딩 모델은 qwen 파운데이션 모델을 기반으로 텍스트 입력을 벡터로 생성하기위해 듀얼 ㅇ니코더 방식을 채택한다.  
+Qwen 임베딩 모델은 qwen 파운데이션 모델을 기반으로 텍스트 입력을 벡터로 생성하기위해 듀얼 인코더 방식을 채택한다.  
+
+<br>
  
 ## Qwen2.5-7b decoder-only for generation
 이  모델이 스키마 기반 sql 생성 task에 적합한 이유는 다음과 같다. 
