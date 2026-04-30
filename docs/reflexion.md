@@ -4,7 +4,7 @@ SQL 생성에서 self-reflexion 루프가 효과적으로 동작하기 위해서
 > 이를 위해, 훈련 데이터는 다음과 같이 구성되어야한다.
 
 ## Reflexion 궤적(Trajectory) 데이터셋 구성
-데이터셋은 크게 3가지 카데고리로 구성되며, 각 각테고리는 다음과 같은 경우를 식별하는 것을 목표로 한다. 
+**Reflexion의 요건:** 데이터셋은 크게 3가지 카데고리로 구성되며, 각 각테고리는 다음과 같은 경우를 식별하는 것을 목표로 한다. 
 - Syntax correcton: sql 문법 애러가 발생한 경우를 식별한다. 
 - Schema alignment: 스키마 불일치(mismatch)는 존재하지않거나 접근 불가능한 컬럼을 참조하는 경울를 식별한다. 
 - Logical refinement: 논리적 제약 조건 위반은 join, where 절, sum() 함수 등을 잘못 사용한 경우를 식별한다.  

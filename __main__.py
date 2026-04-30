@@ -1,4 +1,4 @@
-# entry point  
+# Entrypoint of the application 
 import warnings
 warnings.filterwarnings("ignore")
 from prompt import system_prompt 
