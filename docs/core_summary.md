@@ -9,7 +9,7 @@
 하지만, LLM으로 바로 SQL 쿼리를 생성하는 방법은 효율성이 낮다. SchemaAgent(2025)에 따를면, user query 기반 logical schema 디자인 정보를 schema 생성 task에 활용하는 방식의 임팩트를 보였다. 여기서, Logical 디자인은 entities, relations, and mapping cardinality (특정 컬럼에 존재하는 고유한(Unique) 값의 개수)의 적절한 조합(set)이다. 
 
 ## Proposed Approach
-이 방법론에서 착안하여, 본 프로젝트에서는 executable sql 생성 task에     
+이 방법론에서 착안하여, 본 프로젝트에서는 executable sql 생성 task의 방법론으로 filtered schema 기반 sql 생성 방식을 채택한다.      
 
 <br>
 
