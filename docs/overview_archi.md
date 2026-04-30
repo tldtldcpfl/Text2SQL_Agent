@@ -6,3 +6,11 @@
 
 <br>
 <img width="737" height="360" alt="image" src="https://github.com/user-attachments/assets/6d82a114-123e-45bc-86ca-e6c6feaac737" />
+
+### Outputs Ex
+- 테이블 리턴하는 경우
+<img width="531" height="196" alt="image" src="https://github.com/user-attachments/assets/bc36a861-df36-4a9e-a033-5804c955e5b2" />
+<br>
+
+- 상수 리턴하는 경우 
+<img width="640" height="55" alt="image" src="https://github.com/user-attachments/assets/2c84e6cf-3a39-4a9e-a3af-c663d353caf0" /> 
