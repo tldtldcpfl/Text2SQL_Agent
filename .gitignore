@@ -8,3 +8,8 @@ __pycache__/
 *.zip/
 *.csv 
 *.db
+*.bin
+*.safetensors
+emb_sql_finetuned/ emb_sql_finetuned/
+checkpoints/
+emb_sql_finetuned/
