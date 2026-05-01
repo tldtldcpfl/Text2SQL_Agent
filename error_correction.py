@@ -23,8 +23,5 @@ from sqlalchemy import (
 # - DB에 대한 CRUD 를 조작 
 engine = create_engine("sqlite:///:memory:")
 metadata_obj = MetaData()
-<<<<<<< HEAD
+
 # print(metadata_obj)  
-=======
-print(metadata_obj) 
->>>>>>> d40ddde46648dfe9af6620e6db1f70a1738d83f8
