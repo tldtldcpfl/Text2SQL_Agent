@@ -3,13 +3,10 @@
 venv/
 .venv/
 __pycache__/
-# .vscode 폴더 무시
-.vscode/
 *.zip/
 *.csv 
 *.db
 *.bin
 *.safetensors
-emb_sql_finetuned/ emb_sql_finetuned/
-checkpoints/
-emb_sql_finetuned/
+emb_sql_finetuned/ 
+checkpoints/ 
