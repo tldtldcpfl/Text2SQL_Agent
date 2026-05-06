@@ -11,7 +11,7 @@
 - 이 프레임워크에서는 risk 탐지 프로세스를 통해 safety verfication item을 참조하여 safety check하는 방식을 제안한다. 프레임워크의 성능을 평가하기 위해 사용된 벤치마크 데이터셋은 [Mind2Web-SC](https://huggingface.co/datasets/osunlp/Online-Mind2Web/viewer/default/test?row=0)이며, 이 데이터셋은 다음과 같은 컬럼으로 구성된다: task id, confirmed task (task name), web site, level.   
 
 ## 주요 지표
-- Attack success rate
+- Attack success rate 감소 
 
 ## References
 - https://aclanthology.org/2025.acl-long.399.pdf
