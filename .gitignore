@@ -10,3 +10,4 @@ __pycache__/
 *.safetensors
 emb_sql_finetuned/ 
 checkpoints/ 
+*.json
