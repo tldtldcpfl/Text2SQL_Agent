@@ -2,6 +2,7 @@ from neo4j import GraphDatabase
 import json 
 from tqdm import tqdm 
 
+# config 
 with open ('config.json', 'r') as f:
     config = json.load(f)
 
