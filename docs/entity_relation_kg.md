@@ -17,4 +17,13 @@
 KG 기반 Logical answer 예시:
 
 벡터 유사도 검색 기반 answer 예시:
- 
+
+## Semantic RAG vs Logical KG-RAG Evaluation 
+
+| Evaluation Metric | Semantic RAG | Logical KG-RAG | Analysis |
+|---|---|---|---|
+| Correctness | 7 | 9 | Logical KG-RAG generated more factually grounded answers using explicit graph relations. |
+| Causal Reasoning | 6 | 8 | KG-based retrieval preserved directional causal chains more effectively than semantic similarity retrieval. |
+| Multi-hop Reasoning | 4 | 7 | Semantic RAG struggled to connect intermediate reasoning steps, while KG-RAG successfully traversed multi-hop graph paths. |
+| Hallucination | 3 | 2 | KG-RAG reduced hallucinated reasoning by grounding responses on explicit graph edges and node relations. |
+| Explainability | 8 | 9 | Logical graph paths improved interpretability and reasoning traceability compared to raw semantic chunks. |

@@ -39,4 +39,4 @@ def add_index(docs: list):
 # with open(config['faiss_doc_path'], 'r') as f:
 #     docs = json.load(f)
 
-# add_index(docs)   
+# add_index(docs)    
