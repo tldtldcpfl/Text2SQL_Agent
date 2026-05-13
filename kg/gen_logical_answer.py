@@ -9,11 +9,11 @@ with open('config.json', 'r') as f:
 # logical_context 기반 최종 답변 생성
 def logical_answer_generate(
 
-    query,
+    query:str,
 
-    logical_context
+    logical_context:str
 ):
-
+    # graph-oriented prompt 
     prompt = f"""
 You are a causal reasoning assistant.
 
@@ -21,11 +21,9 @@ Use the logical graph paths
 to explain the reasoning chain.
 
 [Logical Graph Context]
-
 {logical_context} 
 
-[Question]
-
+[Question] 
 {query}
 
 Requirements: 
