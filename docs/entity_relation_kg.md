@@ -1,5 +1,5 @@
 # Entity Relation KG
-전체 프로세스는 다음과 같다. 엔티티-관계 추출 -> 지식 그래프 구성 -> 그래프 DB 저장 -> 그래프 path 검색 -> LLM 피딩 -> 최종 응답 생성  
+전체 프로세스는 다음과 같다: 엔티티-관계 추출 -> 지식 그래프 구성 -> 그래프 DB 저장 -> 그래프 path 검색 -> LLM 피딩 -> 최종 응답 생성  
 
 ## Entity Relation Extraction 
 
@@ -12,7 +12,7 @@
 
 
 ## Comparison between final answers
-> user_query: Why does Dense Retriever cause retrieval failure?
+> **user_query:** Why does Dense Retriever cause retrieval failure?
 
 KG 기반 Logical answer 예시:
 

@@ -99,3 +99,22 @@ def parse_llm_output(text):
             return []
 
     return [] 
+
+def refine_path_for_llm(results: list):
+    refined_text = set()  # 중복 제거 
+
+    for record in results:
+        path = record['path']
+
+        # 경로 내 모든 relationships 순회 
+        for rel in path.relationships:
+            start_node_name = rel.start_node['name']
+            end_node_name = rel.end_node['name']
+            rel_type = rel.type
+            
+            # print(rel_type) 
+            # transform to llm-readable format 
+            triplet_text = f"({start_node_name}) - [{rel_type}] -> ({end_node_name})" 
+            refined_text.add(triplet_text)  
+
+    return sorted(refined_text)
