@@ -5,13 +5,16 @@ import warnings
 warnings.filterwarnings('ignore')
 from gliner import GLiNER
 import json 
+from pathlib import Path
 
-from utils.labels import entity_labels, relation_labels
-from utils.parse import normalize_triplets 
+from kg.utils.labels import entity_labels, relation_labels
+from kg.utils.parse import normalize_triplets 
 # print('[debug]', normalize_triplets)
 
 # Load config.json 
-with open("config.json", "r", encoding='utf-8') as f:
+CONFIG_PATH = Path(__file__).resolve().parents[1] / "config.json"
+
+with open(CONFIG_PATH, "r", encoding='utf-8') as f:
     config = json.load(f)
 
 
@@ -85,7 +88,7 @@ def run_kg_benchmark(
         gliner_latency.append(
             time.time() - start
         )
-        from utils.parse import (
+        from kg.utils.parse import (
             parse_gliner_relations, 
             normalize_entity
             )
@@ -108,8 +111,8 @@ def run_kg_benchmark(
 
         start = time.time()
 
-        from extraction import llm_extract_triplet 
-        from utils.kg_prompt import build_prompt
+        from kg.extraction import llm_extract_triplet 
+        from kg.utils.kg_prompt import build_prompt
 
         llm_raw = llm_extract_triplet(
             model_id,

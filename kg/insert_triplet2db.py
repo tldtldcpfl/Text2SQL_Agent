@@ -1,9 +1,12 @@
 from neo4j import GraphDatabase
 import json 
+from pathlib import Path
 from tqdm import tqdm 
 
 # config 
-with open ('config.json', 'r') as f:
+CONFIG_PATH = Path(__file__).resolve().parents[1] / "config.json"
+
+with open (CONFIG_PATH, 'r') as f:
     config = json.load(f)
 
 # driver: python app이 neo4j db와 연결
@@ -51,7 +54,13 @@ def create_relation(
 
     tail
 ):
-    "엣지 생성"
+    """"
+    관계 엣지 생성 방식:
+    - MERGE 문을 통해 Upsert(Update + Insert) 수행 
+    - 노드 생성: 엔티티 라벨을 가진 노드 중 {name} 속성이 $head와 일치하는 노드가 있는지 확인
+    - 관계 edge 생성/연결: 각 노드는 자신과 연결된 관계들의 리스트를 보유
+    - structural link: merge는 head 노드와 tail 노드 사이에 relation 엣지를 연결 
+    """ 
 
     relation = neo4j_relation(
         relation
@@ -126,7 +135,7 @@ def build_kg_from_dataset(
         # -------------------------------------------------
         # llm extraction
         # -------------------------------------------------
-        from extraction import llm_extract_triplet 
+        from kg.extraction import llm_extract_triplet 
         llm_triplets = llm_extract_triplet(
 
             model_id=model_id,
@@ -137,7 +146,7 @@ def build_kg_from_dataset(
         # -------------------------------------------------
         # normalization
         # -------------------------------------------------
-        from utils.parse import normalize_triplets
+        from kg.utils.parse import normalize_triplets
         llm_triplets = normalize_triplets(
             llm_triplets
         )

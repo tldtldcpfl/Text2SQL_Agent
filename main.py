@@ -3,9 +3,11 @@ import warnings
 warnings.filterwarnings("ignore")
 from prompt import system_prompt 
 from emb_query import emb_sim
-from config import emb_id, llm_id
 from gen_sql import generate_sql, extract_sql 
 from run_sql import execute_sql
+import json 
+with open('config.json', 'r') as f:
+    config = json.load(f)
 
 # ollama 엔드포인트: ollama는 로컬에서 실행되는 LLM 서버
 OLLAMA_URL = "http://localhost:11434/api/generate"
@@ -16,7 +18,7 @@ def main(user_query):
     """
 
     # SQL 생성/정제/실행 
-    df = execute_sql(user_query, llm_id, system_prompt) 
+    df = execute_sql(user_query, config['llm_id'], system_prompt) 
     print('[info] table results:\n', df)
 
 # Enry point of the program 

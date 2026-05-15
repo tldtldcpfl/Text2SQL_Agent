@@ -31,11 +31,11 @@ def classify_query(user_query):
     normalized_probs = exp_probs / np.sum(exp_probs)
     
     return {
-        "semantic_prob": normalized_probs[0],
-        "logical_prob": normalized_probs[1],
-        "hybrid_prob": normalized_probs[2]
+        "Semantic_prob": normalized_probs[0],
+        "Logical_prob": normalized_probs[1],
+        "Hybrid_prob": normalized_probs[2]
     } 
 
-user_query = "Why does Dense Retriever cause retrieval failure?"
+# user_query = "Why does Dense Retriever cause retrieval failure?"
 # query_type =classify_query(user_query)      
 # print(query_type) 

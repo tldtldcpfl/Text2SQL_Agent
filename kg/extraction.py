@@ -4,8 +4,8 @@ import warnings
 warnings.filterwarnings('ignore')
 import ollama  
 import json 
-from utils.labels import entity_labels, relation_labels 
-from utils.kg_prompt import build_prompt 
+from kg.utils.labels import entity_labels, relation_labels 
+from kg.utils.kg_prompt import build_prompt 
 # print(build_prompt)
 
 def llm_extract_triplet(
@@ -43,7 +43,7 @@ def llm_extract_triplet(
         "message"
     ]["content"]
 
-    from utils.parse import parse_llm_output 
+    from kg.utils.parse import parse_llm_output 
     parsed = parse_llm_output(
         raw_output
     )

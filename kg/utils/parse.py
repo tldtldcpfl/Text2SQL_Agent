@@ -1,4 +1,4 @@
-from utils.labels import KOREAN_PARTICLES, RELATION_MAP
+from kg.utils.labels import KOREAN_PARTICLES, RELATION_MAP
 # print(KOREAN_PARTICLES)
 import re
 import json 
@@ -118,3 +118,35 @@ def refine_path_for_llm(results: list):
             refined_text.add(triplet_text)  
 
     return sorted(refined_text)
+
+def parse_entity_response(result):
+    try:
+        parsed = json.loads(result)
+
+        if isinstance(parsed, list):
+            return [
+                item.strip()
+                for item in parsed
+                if isinstance(item, str) and item.strip()
+            ]
+
+    except json.JSONDecodeError:
+        pass
+
+    match = re.search(r"\[.*\]", result, re.DOTALL)
+
+    if not match:
+        return []
+
+    try:
+        parsed = json.loads(match.group())
+        if isinstance(parsed, list):
+            return [
+                item.strip()
+                for item in parsed
+                if isinstance(item, str) and item.strip()
+            ]
+    except json.JSONDecodeError:
+        return []
+
+    return []
