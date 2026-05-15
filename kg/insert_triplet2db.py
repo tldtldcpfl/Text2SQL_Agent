@@ -116,6 +116,7 @@ def build_kg_from_dataset(
 
     model_id
 ):
+    """비정형 문서 데이터셋에서 엔티티 추출 이후 neo4j에 그래프 적재"""
 
     total_triplets = 0
 
